@@ -222,7 +222,8 @@ var BASE_URL = 'http://www.gmanetwork.com/',
         var ua = navigator.userAgent || navigator.vendor || window.opera;
         return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
     }
-    $('.social-ribbon-wrapper .ribbon-btns i').css('font-size', '11px !important');
+    $('.ribbon-btns > i').css('font-size', '11px !important');
+    console.log($('.ribbon-btns').html());
     if(isFacebookApp()){
         //$('.social-ribbon-wrapper > .ribbon-btns > i').css('font-size', '11px !important');
     }
