@@ -5,7 +5,7 @@
         <!-- Standard Meta -->
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>v6Glaiza De Castro, kinilala sa larangan ng sining-biswal at pantanghalan ng Valenzuela City | Showbiz News | GMA Entertainment - Online Home of Kapuso Shows and Stars - Story</title>
+        <title>v7Glaiza De Castro, kinilala sa larangan ng sining-biswal at pantanghalan ng Valenzuela City | Showbiz News | GMA Entertainment - Online Home of Kapuso Shows and Stars - Story</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Congratulations, Glaiza!" />
         <meta name="keywords" content="glaiza de castro" />
@@ -113,22 +113,16 @@
     // ga('newTracker.send', 'pageview');
 </script>
         <link rel="stylesheet" href="https://aphrodite.gmanetwork.com/assets/revamp/css/build/showbiznews_article.css?v=1.0.21">
-        <style>
-            .social-ribbon-wrapper .ribbon-btns > i {
-                font-size: 28px !important;
-                font-size: 100% !important;
-                text-size-adjust:none !important;
-                -webkit-text-size-adjust:none !important;
-                -moz-text-size-adjust:none !important;
-                -ms-text-size-adjust:none !important;
-            }
-        </style>
         <script>
             function isFacebookApp() {
                 var ua = navigator.userAgent || navigator.vendor || window.opera;
                 return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
             }
-            console.log('is_fb_inapp:' + isFacebookApp());
+            if(isFacebookApp()){
+                $('.social-ribbon-wrapper .ribbon-btns > i').css({
+                    fontSize: 15px
+                });
+            }
         </script>
         <script src="https://aphrodite.gmanetwork.com/assets/revamp/libs/modernizr-2.8.3.min.js"></script>
 
