@@ -123,6 +123,13 @@
                 -ms-text-size-adjust:none !important;
             }
         </style>
+        <script>
+            function isFacebookApp() {
+                var ua = navigator.userAgent || navigator.vendor || window.opera;
+                return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+            }
+            console.log('is_fb_inapp:' + isFacebookApp());
+        </script>
         <script src="https://aphrodite.gmanetwork.com/assets/revamp/libs/modernizr-2.8.3.min.js"></script>
 
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
