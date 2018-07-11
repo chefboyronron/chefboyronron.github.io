@@ -1050,3 +1050,4 @@
 	}
 
 })();
+$(document).ready(function(){$('.gma-ent-embed').iFrameResize({});})
