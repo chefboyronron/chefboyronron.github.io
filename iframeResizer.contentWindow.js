@@ -1105,7 +1105,7 @@
 
 	//Create test hooks
 
-	function mockMsgListener(msgObject){
+	/*function mockMsgListener(msgObject){
 		receiver(msgObject);
 		return win;
 	}
@@ -1114,7 +1114,7 @@
 
 	removeEventListener(window, 'message', receiver);
 
-	define([], function() {return mockMsgListener;});
+	define([], function() {return mockMsgListener;});*/
 
 	// TEST CODE END //
 
