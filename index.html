@@ -7,7 +7,7 @@
 </head>
 <body>
     <iframe 
-        class="gma-ent-embed computed" 
+        class="gma-ent-embed" 
         frameborder="0" scrolling="no" 
         src="https://chefboyronron.github.io/content.html" 
         width="100%" 
@@ -15,6 +15,10 @@
         style="overflow: hidden;">
     </iframe>
     <script src="https://chefboyronron.github.io/iframeResizer.js"></script>
-<script>$('iframe').iFrameResize({});</script>
+<script>
+    $(document).ready(function(){
+        $('.gma-ent-embed').iFrameResize({});
+    })
+</script>
 </body>
 </html>
