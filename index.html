@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 <body>
-	  <style>
-    .content {
-        border: 1px solid #000;
-        height: 1000px;
-    }
-    </style>
-    <div class="content">github io IA iframe test v2</div>
-    <script type="text/javascript" src="https://chefboyronron.github.io/iframeResizer.contentWindow.js"></script>
-<script>
-$(document).ready(function(){
-	$('.content').html('script change the content of this div.');
-	console.log('xxx');
-});
-</script>
+    <iframe 
+        class="gma-ent-embed computed" 
+        frameborder="0" scrolling="no" 
+        src="content.php" 
+        width="100%" 
+        id="iframe-ent0" 
+        style="overflow: hidden;">
+    </iframe>
+    <script src="https://chefboyronron.github.io/iframeResizer.js"></script>
+<script>$('iframe').iFrameResize({});</script>
 </body>
 </html>
