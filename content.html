@@ -10,12 +10,15 @@
 			border: 1px solid #000;
 		}
 	</style>
+	<script>
+		function doIt() {
+		    var elem = window.parent.document.getElementById('iframe-ent0'); // the id of your iframe of course
+		    elem.style.height = '40em';
+		}
+		doIt();
+	</script>
 </head>
 <body>
-	<div class="iframe-content">
-	<iframe width="640" height="380" src="https://www.youtube.com/embed/MOuo_g3i_mI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-	</div>
-	<script src="https://chefboyronron.github.io/iframeResizer.contentWindow.js"></script>
+	<div class="iframe-content"></div>
 </body>
 </html>
-
