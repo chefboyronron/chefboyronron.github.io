@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<!-- Loading external files -->
+		<!-- <link rel="stylesheet" type="text/css" href="http://dfp.ingraye.com/creative/interstitial/shadowbox.css" /> -->
+		<script type="text/javascript">
+			// // Boolean flag to know if Shadowbox has been loaded
+			// var ShadowboxOutputted = false;
+
+			// // Function to check for Shadowbox and if it's not available, load it.
+			// function initShadowbox() 
+			// {
+			// // Checks if Shadowbox is exists
+			// if (typeof(Shadowbox) == 'undefined')
+			// {
+			// // Checks if Shadowbox is has been loaded previously
+			// if (! ShadowboxOutputted) 
+			// {
+			// //only output the script once..
+			// ShadowboxOutputted = true;
+			// //output the script
+			// document.write("<scr" + "ipt type=\"text/javascript\" src=\"http://dfp.ingraye.com/creative/interstitial/shadowbox.js\"></scr" + "ipt>");
+			// }
+			// // Recursive until Shadowbox is loaded
+			// setTimeout("initShadowbox()", 100);
+			// } 
+			// else
+			// {
+			// // Shadowbox is loaded, do the set up for it
+			// Shadowbox.init({
+			// // Let's skip the automatic setup because we don't have any properly
+			// // configured link elements on the page
+			// skipSetup: true
+			// });
+			// // Shadowbox looks to be loaded, let's run it
+			// loadShadowBox();
+			// }
+			// }
+			// // Run the script to check for Shadowbox
+			// initShadowbox();
+		</script>
+
+		<script type="text/javascript">
+			// function loadShadowBox()
+			// {
+			// // Chrome seems to have issues if we just launch the Shadowbox because certain elements from the init hasn't been done yet
+			// // So we check if the sb-container exists from the init
+			// if (document.getElementById('sb-container'))
+			// {
+			// // If the sb-container is there, load up the interstitial
+			// Shadowbox.open({
+			// // Content is the HTML that is being served. 
+			// // Since this is a basic image ad, I can use the Click Macro (%%CLICK_URL_ESC%%) to track clicks. 
+			// // I also added the Cachebuster (%%CACHEBUSTER%%) at the end of the image to prevent caching. 
+			// // For Flash based ads, you will need to make your own embed code but need to pass the Click Macro via the clickTAG or Flashvars.
+			// content: '<div id="advertisement-shadowbox" style="color: white;"><a href="%%CLICK_URL_ESC%%http://www.google.com/" target="_blank"><img src="http://dfp.ingraye.com/creative/interstitial/adbox.jpg?ord=%%CACHEBUSTER%%"/></a></div>',
+			// // In Shadowbox, you have multiple "players" for types of content (html, iframe, flash, etc).
+			// player: "html",
+			// handleOversize: "resize",
+			// title: "ADVERTISEMENT",
+			// // Obviously set the size to how big your ad is
+			// width: 512,
+			// height: 468
+			// });
+			// }
+			// else 
+			// {
+			// // If sb-container doesn't exist, recursive until it does
+			// setTimeout("loadShadowBox()", 100);
+			// }
+			// }
+		</script>
+		<script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+		<script>
+			var googletag = googletag || {};
+			googletag.cmd = googletag.cmd || [];
+			googletag.cmd.push(function() {
+			  	//googletag.setAdIframeTitle('Celebrity interstitial');
+			  	//googletag.pubads().setForceSafeFrame(false);
+			  	googletag.disablePublisherConsole();
+			    googletag.defineOutOfPageSlot("/344684475/ENT_Showbiz_Mobile_Interstitial", "interstitial").addService(googletag.pubads());
+			    //googletag.defineOutOfPageSlot("/344684475/GNO_Money_Desktop_Pushdown", "interstitial").addService(googletag.pubads())
+			    //googletag.defineSlot("/344684475/ENT_Showbiz_Mobile_Interstitial", [320, 50], "interstitial").addService(googletag.pubads())
+			    //googletag.pubads().enableSingleRequest();
+			    //googletag.pubads().enableAsyncRendering();
+			    //googletag.pubads().enableVideoAds();
+			    //googletag.companionAds().setRefreshUnfilledSlots(true);
+			    googletag.enableServices();
+			    googletag.display("interstitial");
+			    googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+				    if (event.slot.getSlotElementId() == "interstitial") {
+				        console.log(event);
+				    }
+				});
+			});
+		</script>
+	</head>
+<body>
+	<div id="interstitial"></div>
+</body>
+</html>
+
+<!-- 
+Showbiz News	ENT_Showbiz_Mobile_Interstitial 
+Celebrity Life	ENT_Celeblife_Mobile_Interstitial
+TV	ENT_TV_Mobile_Interstitial
+Engage	ENT_Engage_Mobile_Interstitial
+GNO: GNO_Money_Desktop_Pushdown
+ -->
