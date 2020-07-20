@@ -1,0 +1,11 @@
+{
+    "index" : {
+        "src" : [
+            "js/libs/jquery-3.5.1.min.js",
+            "js/libs/foundation.js",
+            "js/src/common/common.js",
+            "js/src/pages/index.js"
+        ],
+        "dest" : "js/build/index.js"
+    }
+}
