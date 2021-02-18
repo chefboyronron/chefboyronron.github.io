@@ -3,6 +3,10 @@
         "src" : [
             "js/libs/jquery-3.5.1.min.js",
             "js/libs/foundation.js",
+            "js/src/common/templates/header.js",
+            "js/src/common/templates/left_panel.js",
+            "js/src/common/templates/content.js",
+            "js/src/common/widgets/theme_switcher.js",
             "js/src/common/common.js",
             "js/src/pages/index.js"
         ],

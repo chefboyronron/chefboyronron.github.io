@@ -1,0 +1,16 @@
+body.light {
+    background: $lightmodeBG;
+
+    #left-panel {
+        background: $lightmodeBG;
+        h4 {
+            color: #000;
+        }
+    }
+
+    #chefboy-theme-switcher {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+}

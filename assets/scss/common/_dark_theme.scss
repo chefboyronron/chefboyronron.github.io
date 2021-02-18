@@ -1,0 +1,50 @@
+body.dark {
+    background: $darkmodeBG;
+
+    #navigation-menu {
+        ul li.content-selector, .top-bar, .top-bar ul {
+            background: $darkmodeBG;
+        }
+        .mobile-nav ul.tabs li > a[aria-selected='true'] {
+            background: $darkHover;
+        }
+    }
+
+    #left-panel {
+        background: $darkmodeBG;
+        a.thumbnail {
+            border: 4px solid #5d5d5d;
+        }
+        h4 {
+            color: #ffffff;
+        }
+        .tabs {
+            background: $darkmodeBG;
+        }
+        .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+            background: $darkHover;
+        }
+        .tabs-title > a:hover {
+            background: #101010;
+        }
+    }
+
+    #content {
+        .tabs-content {
+            background: $darkHover;
+            color: #ffffff;
+        }
+        thead, tbody, tfoot {
+            background: $darkmodeBG;
+        }
+        tbody tr:nth-child(even) {
+            background: #252525;
+        }
+    }
+
+    #chefboy-theme-switcher {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+}
