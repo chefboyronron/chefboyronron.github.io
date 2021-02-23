@@ -35,9 +35,9 @@ var LeftPanel = {
                         }
 
                         if( menu.id === LeftPanel.options.defaultSelected ) {
-                            html += '<li class="content-selector menu-text tabs-title is-active"><a href="#' + menu.id + '" aria-selected="true" data-toggle>' + menu.name + '</a></li>';
+                            html += '<li class="content-selector menu-text tabs-title is-active"><a href="#' + menu.id + '" class="' + menu.id + '-label" aria-selected="true" data-toggle>' + menu.name + '</a></li>';
                         } else {
-                            html += '<li class="content-selector menu-text tabs-title"><a href="#' + menu.id + '">' + menu.name + '</a></li>';
+                            html += '<li class="content-selector menu-text tabs-title"><a href="#' + menu.id + '" class="' + menu.id + '-label">' + menu.name + '</a></li>';
                         } 
                     });
                 html += '</ul>';
@@ -49,7 +49,7 @@ var LeftPanel = {
             var html = '';
 
             html += '<h6 class="text-center mt100">';
-                html += '<small>Made with VanilaJS and Foundation CSS Framework &copy; 2020</small>';
+                html += '<small>Made with VanilaJS and Foundation CSS Framework &copy; ' + new Date().getFullYear() + '</small>';
             html += '</h6>';
 
             return html;
@@ -69,9 +69,18 @@ var LeftPanel = {
                     var link = elem.querySelector('a');
                     if( link !== null ) {
                         link.addEventListener('click',function(e){
+
+                            // Set Page title
                             var page = e.srcElement.attributes['aria-controls'].value;
                             document.title = Header.author + ' | ' + page[0].toUpperCase() + page.slice(1);
                             window.history.pushState({"pageTitle": Header.author + ' | ' + 'Page title'}, "", '#' + page);
+
+                            // Handle navigation menu to set same selected value
+                            var menus = document.getElementsByClassName(page + '-label');
+                            var pageMenus = [].slice.call(menus);
+                            pageMenus.forEach(function(btn){
+                                btn.click();
+                            });
                         });
                     }
                  });

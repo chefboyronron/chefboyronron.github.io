@@ -40,9 +40,9 @@ var Header = {
                             }
 
                             if( menu.id === LeftPanel.options.defaultSelected ) {
-                                html += '<li class="content-selector menu-text tabs-title is-active"><a href="#' + menu.id + '" aria-selected="true" data-toggle>' + menu.name + '</a></li>';
+                                html += '<li class="content-selector menu-text tabs-title is-active"><a href="#' + menu.id + '" class="' + menu.id + '-label" aria-selected="true" data-toggle>' + menu.name + '</a></li>';
                             } else {
-                                html += '<li class="content-selector menu-text tabs-title"><a href="#' + menu.id + '">' + menu.name + '</a></li>';
+                                html += '<li class="content-selector menu-text tabs-title"><a href="#' + menu.id + '" class="' + menu.id + '-label">' + menu.name + '</a></li>';
                             } 
                         });
                     html += '</ul>';
@@ -69,8 +69,22 @@ var Header = {
                 mobileMenu.forEach(function(elem){
                     var remove_btn = elem.querySelector('a');
                     if( remove_btn !== null ) {
-                        remove_btn.addEventListener('click',function(){
+                        remove_btn.addEventListener('click',function(e){
+
+                            // Set Page title
+                            var page = e.srcElement.attributes['aria-controls'].value;
+                            document.title = Header.author + ' | ' + page[0].toUpperCase() + page.slice(1);
+                            window.history.pushState({"pageTitle": Header.author + ' | ' + 'Page title'}, "", '#' + page);
+
+                            // Hide mobile nav on item click
                             document.querySelector('.mobile-nav').style.display = 'none';
+
+                            // Handle navigation menu to set same selected value
+                            var menus = document.getElementsByClassName(page + '-label');
+                            var pageMenus = [].slice.call(menus);
+                            pageMenus.forEach(function(btn){
+                                btn.click();
+                            });
                         });
                     }
                  });
