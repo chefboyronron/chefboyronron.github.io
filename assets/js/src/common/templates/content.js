@@ -76,7 +76,28 @@ var Content = {
                     var container = document.getElementById(menu.id);
                     container.innerHTML = menu.content;
                 });
-            },5000);
+            },1000);
+
+            setTimeout(function(){
+                var map = document.getElementById('sjc_map'),
+                    outerMap = map.parentElement,
+                    canvasMap = map.parentElement.parentElement;
+
+                map.style.width = '100%' ;
+                outerMap.style.width = '100%';
+                canvasMap.style.width = '100%';
+
+                if(Utility.isMobile()) {
+                    map.style.height = '300px' ;
+                    outerMap.style.width = canvasMap.offsetWidth;
+                    canvasMap.style.width = canvasMap.offsetWidth;
+                } else {
+                    map.style.height = canvasMap.offsetWidth / 2 + 'px';
+                }
+
+                
+            },1000);
+
         });
     }
 }

@@ -40,6 +40,11 @@ body.dark {
         tbody tr:nth-child(even) {
             background: #252525;
         }
+        .callout {
+            background: $darkHover;
+            color: #ffffff;
+            border: 1px solid $darkHover;
+        }
     }
 
     #chefboy-theme-switcher {
