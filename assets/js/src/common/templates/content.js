@@ -21,10 +21,10 @@ var Content = {
                 }
 
                 if( menu.id === LeftPanel.options.defaultSelected ) {
-                    var output = Content.httpRequest(i, menu.id);
+                    var output = self.httpRequest(i, menu.id);
                     html += '<div class="tabs-panel is-active" id="' + menu.id + '">' + Header.loadingMessage + '</div>';
                 } else {
-                    var output = Content.httpRequest(i, menu.id);
+                    var output = self.httpRequest(i, menu.id);
                     html += '<div class="tabs-panel" id="' + menu.id + '">' + Header.loadingMessage + '</div>';
                 }
             });
@@ -32,6 +32,20 @@ var Content = {
             html += '</div>';
 
             return html;
+        },
+
+        map : function(mapContainer) {
+            var html = '',
+                endpoint = 'https://maps.google.com/maps?q=st%20jude%20college%20philippines&t=&z=17&ie=UTF8&iwloc=&output=embed',
+                height = (Utility.isMobile()) ? '300px' : '400px';
+
+            html += '<div class="mapouter">';
+                html += '<div class="gmap_canvas">';
+                    html += '<iframe id="sjc_map" height="'+ height +'" src="' + endpoint + '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+                html += '</div>';
+            html += '</div>';
+
+            mapContainer.innerHTML = html;
         }
     },
 
@@ -72,32 +86,17 @@ var Content = {
         var self = Content;
         $.when(self.render.main_content()).then(function(){
             setTimeout(function(){
-                Header.menus.forEach(function(menu){
-                    var container = document.getElementById(menu.id);
-                    container.innerHTML = menu.content;
-                });
-            },1000);
-
-            setTimeout(function(){
-                var map = document.getElementById('sjc_map'),
-                    outerMap = map.parentElement,
-                    canvasMap = map.parentElement.parentElement;
-
-                map.style.width = '100%' ;
-                outerMap.style.width = '100%';
-                canvasMap.style.width = '100%';
-
-                if(Utility.isMobile()) {
-                    map.style.height = '300px' ;
-                    outerMap.style.width = canvasMap.offsetWidth;
-                    canvasMap.style.width = canvasMap.offsetWidth;
-                } else {
-                    map.style.height = canvasMap.offsetWidth / 2 + 'px';
-                }
-
-                
-            },1000);
-
+                $.when(
+                    Header.menus.forEach(function(menu){
+                        var container = document.getElementById(menu.id);
+                        container.innerHTML = menu.content;
+                    })
+                ).then(function(){
+                    var mapContainer = document.getElementById('map-container');
+                    mapContainer.innerHTML = 'Rendering Map, Please wait...';
+                    self.dom.map(mapContainer);
+                })
+            },2000);
         });
     }
 }

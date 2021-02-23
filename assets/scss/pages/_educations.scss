@@ -1,8 +1,14 @@
 .mapouter{
     position:relative;
     text-align:right;
+    width: 100%;
 }
 .gmap_canvas {
     overflow:hidden;
-    background:none!important;
+    background:none !important;
+    height: 100%;
+}
+
+#sjc_map {
+    width: 100%;
 }
