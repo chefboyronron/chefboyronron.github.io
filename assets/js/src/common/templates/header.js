@@ -15,7 +15,15 @@ var Header = {
     dom : {
         navigation : function() {
             var self = Header,
-                html = '';
+                html = '',
+                currentPage = window.location.hash.replace('#', ''),
+                menuCounter = 0;
+            
+            Header.menus.forEach(function(menu){
+                if( currentPage !== menu.id) {
+                    menuCounter++;
+                }
+            });
 
             html += '<div class="title-bar" data-responsive-toggle="chefboy-menu" data-hide-for="medium">';
                 html += '<button class="menu-icon" type="button" data-toggle></button>';
@@ -26,7 +34,12 @@ var Header = {
                 html += '<div class="top-bar-left">';
                     html += '<ul class="vertical tabs medium-horizontal" data-tabs id="chefboy-tabs">';
                         self.menus.forEach(function(menu, i){
-                            if( i === 0 ) {
+
+                            if( currentPage !== '' && menuCounter != Header.menus.length ) {
+                                LeftPanel.options.defaultSelected = currentPage;
+                            }
+
+                            if( menu.id === LeftPanel.options.defaultSelected ) {
                                 html += '<li class="content-selector menu-text tabs-title is-active"><a href="#' + menu.id + '" aria-selected="true" data-toggle>' + menu.name + '</a></li>';
                             } else {
                                 html += '<li class="content-selector menu-text tabs-title"><a href="#' + menu.id + '">' + menu.name + '</a></li>';
