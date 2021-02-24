@@ -58,32 +58,52 @@ var LeftPanel = {
 
     event : {
         routeUrl : function() {
-            var self = LeftPanel;
+            var self = LeftPanel,
+                link = '',
+                elements = Header.menus;
             
-            var elements = document.getElementsByClassName('content-selector');
             
             if( elements.length > 0 ) {
                 var buttons = [].slice.call(elements);
 
-                buttons.forEach(function(elem){
-                    var link = elem.querySelector('a');
+                buttons.forEach(function(button){
+
+                    link = document.getElementsByClassName(button.id + '-label');
+                    var btn = [].slice.call(link);
+
                     if( link !== null ) {
-                        link.addEventListener('click',function(e){
 
-                            // Set Page title
-                            var page = e.srcElement.attributes['aria-controls'].value;
-                            document.title = Header.author + ' | ' + page[0].toUpperCase() + page.slice(1);
-                            window.history.pushState({"pageTitle": Header.author + ' | ' + 'Page title'}, "", '#' + page);
+                        btn.forEach(function(elem){
+                            elem.addEventListener('click',function(e){
+                                var gaCounter = 0;
+                                // Set Page title
+                                var page = e.srcElement.attributes['aria-controls'].value;
+                                document.title = Header.author + ' | ' + page[0].toUpperCase() + page.slice(1);
+                                window.history.pushState({"pageTitle": Header.author + ' | ' + 'Page title'}, "", '#' + page);
 
-                            // Handle navigation menu to set same selected value
-                            var menus = document.getElementsByClassName(page + '-label');
-                            var pageMenus = [].slice.call(menus);
-                            pageMenus.forEach(function(btn){
-                                btn.click();
+                                // Handle navigation menu to set same selected value
+                                var menus = document.getElementsByClassName(page + '-label');
+                                var pageMenus = [].slice.call(menus);
+                                pageMenus.forEach(function(navs){
+                                    if( navs.attributes['aria-selected'].value == 'false') {
+                                        navs.click();
+                                        gaCounter++;
+                                    }
+                                });
+
+                                if( gaCounter === 2 ) {
+                                    // GA Event
+                                    if( typeof gtag !== 'undefined') {
+                                        gtag('event', 'clicks', {
+                                            'event_category': 'Menu clicked',
+                                            'event_label': page
+                                        });
+                                    }
+                                }
                             });
                         });
                     }
-                 });
+                });
             }
         }
     },
@@ -99,8 +119,9 @@ var LeftPanel = {
 
     init : function() {
         var self = LeftPanel;
-        self.render.leftPanel();
-        self.event.routeUrl();
+        $.when(self.render.leftPanel()).then(function(){
+            self.event.routeUrl();
+        });
     }
 }
 

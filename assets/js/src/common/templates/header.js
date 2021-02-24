@@ -60,34 +60,40 @@ var Header = {
     event : {
         toggleMenu : function() {
 
-            var mobileNavBtn = document.getElementsByClassName('content-selector');
+            var mobileNavBtn = Header.menus,
+                link = '';
 
             if( mobileNavBtn.length > 0 ) {
-
                 var mobileMenu = [].slice.call(mobileNavBtn);
 
-                mobileMenu.forEach(function(elem){
-                    var remove_btn = elem.querySelector('a');
-                    if( remove_btn !== null ) {
-                        remove_btn.addEventListener('click',function(e){
+                mobileMenu.forEach(function(button){
 
-                            // Set Page title
-                            var page = e.srcElement.attributes['aria-controls'].value;
-                            document.title = Header.author + ' | ' + page[0].toUpperCase() + page.slice(1);
-                            window.history.pushState({"pageTitle": Header.author + ' | ' + 'Page title'}, "", '#' + page);
+                    link = document.getElementsByClassName(button.id + '-label');
+                    var btn = [].slice.call(link);
 
-                            // Hide mobile nav on item click
-                            document.querySelector('.mobile-nav').style.display = 'none';
+                    if( link !== null ) {
+                        btn.forEach(function(elem){
+                            elem.addEventListener('click',function(e){
+                                // Set Page title
+                                var page = e.srcElement.attributes['aria-controls'].value;
+                                document.title = Header.author + ' | ' + page[0].toUpperCase() + page.slice(1);
+                                window.history.pushState({"pageTitle": Header.author + ' | ' + 'Page title'}, "", '#' + page);
 
-                            // Handle navigation menu to set same selected value
-                            var menus = document.getElementsByClassName(page + '-label');
-                            var pageMenus = [].slice.call(menus);
-                            pageMenus.forEach(function(btn){
-                                btn.click();
+                                // Hide mobile nav on item click
+                                document.querySelector('.mobile-nav').style.display = 'none';
+
+                                // Handle navigation menu to set same selected value
+                                var menus = document.getElementsByClassName(page + '-label');
+                                var pageMenus = [].slice.call(menus);
+                                pageMenus.forEach(function(navs){
+                                    if( navs.attributes['aria-selected'].value == 'false') {
+                                        navs.click();
+                                    }
+                                });
                             });
                         });
                     }
-                 });
+                });
             }
         }
     },

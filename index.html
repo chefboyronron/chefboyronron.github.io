@@ -45,11 +45,14 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=263287803"></script>
     <script>
-        var GA_MEASUREMENT_ID = 'G-6DSQ6XTCFN';
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', GA_MEASUREMENT_ID, { 'send_page_view': true });
+        var base_url = window.location.origin;
+        if( base_url !== 'http://www.ronron.com' ) {
+            var GA_MEASUREMENT_ID = 'G-6DSQ6XTCFN';
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', GA_MEASUREMENT_ID, { 'send_page_view': false });
+        }
     </script>
 </head>
 <body class="light">
