@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://chefboyronron.github.io/sitemap.xml
