@@ -94,7 +94,7 @@ var LeftPanel = {
                                 if( gaCounter === 2 ) {
                                     // GA Event
                                     if( typeof gtag !== 'undefined') {
-                                        gtag('event', 'click', {
+                                        gtag('event', 'clicks', {
                                             'event_category' : 'Menu clicked',
                                             'event_label' : page
                                         });
