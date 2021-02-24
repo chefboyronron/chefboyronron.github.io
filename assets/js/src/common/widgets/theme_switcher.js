@@ -25,15 +25,28 @@ var ThemeSwitcher = {
             var input = document.getElementById('theme-switcher'),
                 body = document.getElementsByTagName('body');
 
+            var theme = Store.getValue('theme');
+            var selected = (theme === null) ? 'light' : theme;
+
+            body[0].classList.remove('light');
+            body[0].classList.remove('dark');
+            body[0].classList.add(selected);
+            if( theme === 'dark' ) {
+                input.setAttribute('checked', 'checked');
+            }
+            input.value = selected;
+
             input.addEventListener('click', function(e){
                 if( this.value == 'light' ) {
                     input.value = 'dark';
                     body[0].classList.remove('light');
                     body[0].classList.add('dark');
+                    Store.addValue([{'key' : 'theme', 'value' : 'dark'}]);
                 } else {
                     input.value = 'light';
                     body[0].classList.remove('dark');
                     body[0].classList.add('light');
+                    Store.addValue([{'key' : 'theme', 'value' : 'light'}]);
                 }
             });
         }

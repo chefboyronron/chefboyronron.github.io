@@ -9,7 +9,7 @@ var Header = {
         { id: 'experience', name: 'Experience', content: '' },
         { id: 'education', name: 'Education', content: '' },
         { id: 'skills', name: 'Skills', content: '' },
-        { id: 'information', name: 'Additional Information', content: '' }
+        // { id: 'portfolio', name: 'Projects', content: '' }
     ],
     loadingMessage : '<div class="loading">Please wait, while preparing the content to load.</div>',
     dom : {
