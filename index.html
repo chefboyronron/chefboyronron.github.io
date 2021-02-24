@@ -46,13 +46,13 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-190521278-1"></script>
     <script>
         var base_url = window.location.origin;
-        // if( base_url !== 'http://www.ronron.com' ) {
+        if( base_url !== 'http://www.ronron.com' ) {
             var TRACKING_ID = 'UA-190521278-1';
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', TRACKING_ID, {'send_to':TRACKING_ID});
-        // }
+        }
     </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
