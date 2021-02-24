@@ -69,6 +69,17 @@ body.dark {
             font-size: 12px;
         }
 
+        .bar-label::after {
+            content: "";
+            width: 0px;
+            height: 0px;
+            border-bottom: 5px solid #04c2c9;
+            border-right: 10px solid transparent;
+            position: absolute;
+            right: -10px;
+            top: 0px;
+        }
+
         .bar {
             position: relative;
         }
