@@ -96,10 +96,12 @@ var LeftPanel = {
                                     if( typeof gtag !== 'undefined') {
                                         gtag('event', 'clicks', {
                                             'event_category' : 'Menu clicked',
-                                            'event_label' : page
+                                            'event_label' : page,
+                                            'send_to':TRACKING_ID
                                         });
-                                        gtag('config', GA_MEASUREMENT_ID, {
-                                            'page_path': '/#' + page
+                                        gtag('config', TRACKING_ID, {
+                                            'page_path': '/#' + page,
+                                            'send_to':TRACKING_ID
                                         });
                                     }
                                 }
