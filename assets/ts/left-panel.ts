@@ -106,7 +106,7 @@ export class LeftPanel {
                                 }
                             });
 
-                            if( gaCounter === 2 ) {
+                            if( gaCounter === 0 ) {
                                 // GA Event
                                 if( typeof gtag !== 'undefined') {
                                     gtag('event', 'clicks', {
