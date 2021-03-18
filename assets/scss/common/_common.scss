@@ -1,0 +1,89 @@
+$darkmodeBG: #0e0e0e;
+$darkHover: #191919;
+$lightmodeBG: #fefefe;
+
+@for $i from 1 through 101 {
+    // Margin 
+    .mb#{$i} {
+      margin-bottom: $i + px;
+    }
+    .mt#{$i} {
+        margin-top: $i + px;
+    }
+    .ml#{$i} {
+        margin-left: $i + px;
+    }
+    .mr#{$i} {
+        margin-right: $i + px;
+    }
+    // Padding
+    .pb#{$i} {
+        margin-bottom: $i + px;
+    }
+    .pt#{$i} {
+        margin-top: $i + px;
+    }
+    .pl#{$i} {
+        margin-left: $i + px;
+    }
+    .pr#{$i} {
+        margin-right: $i + px;
+    }
+}
+
+.v-align-top {
+    vertical-align: top !important;
+}
+
+.desktop-nav {
+    ul.tabs {
+        border: none;
+
+        li:focus, li a:focus {
+            outline: none;
+        }
+
+        li > a {
+            font-size: 15px;
+        }
+    }
+}
+
+#navigation-menu {
+    button.menu-icon:focus {
+        outline: none;
+    }
+}
+
+.mobile-nav {
+
+    ul.tabs {
+        border: none;
+
+        li:focus, li a:focus {
+            outline: none;
+        }
+
+        li > a:hover {
+            background: #d6d6d6;
+        }
+
+        li > a[aria-selected='true'] {
+            background: #fff;
+        }
+
+        li > a {
+            font-size: 15px;
+        }
+    }
+}
+
+#content {
+    .tabs-content.vertical {
+        border: none;
+    }
+}
+
+.loading {
+    text-align: center;
+}
