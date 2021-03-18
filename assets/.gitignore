@@ -1,8 +1,0 @@
-package-lock.json
-*.log
-
-.sass-cache/
-node_modules/
-
-package-lock.json
-composer.lock
