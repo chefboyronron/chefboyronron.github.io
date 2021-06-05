@@ -27,7 +27,7 @@ export class Header  {
             html = '',
             currentPage = window.location.hash.replace('#', ''),
             menuCounter = 0;
-        
+
         self.menus.forEach(function(menu){
             if( currentPage !== menu.id) {
                 menuCounter++;
@@ -38,7 +38,7 @@ export class Header  {
             html += '<button class="menu-icon" type="button" data-toggle></button>';
             html += '<div class="title-bar-title title-bar-right"><span class="">RON</span> <span class="text-primary">SEMINIANO</span></div>';
         html += '</div>';
-        
+
         html += '<div class="top-bar mobile-nav" id="chefboy-menu">';
             html += '<div class="top-bar-left">';
                 html += '<ul class="vertical tabs medium-horizontal" data-tabs id="chefboy-tabs">';
@@ -52,7 +52,7 @@ export class Header  {
                             html += '<li class="content-selector menu-text tabs-title is-active"><a href="#' + menu.id + '" class="' + menu.id + '-label" aria-selected="true" data-toggle>' + menu.name + '</a></li>';
                         } else {
                             html += '<li class="content-selector menu-text tabs-title"><a href="#' + menu.id + '" class="' + menu.id + '-label">' + menu.name + '</a></li>';
-                        } 
+                        }
                     });
                 html += '</ul>';
             html += '</div>';
